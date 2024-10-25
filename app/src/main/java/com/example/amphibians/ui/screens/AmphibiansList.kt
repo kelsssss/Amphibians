@@ -24,9 +24,9 @@ import com.example.amphibians.ui.theme.AmphibiansTheme
      ) {
          items(4) {
              AmphibianCard(
-                 modifier = modifier
+                 modifier = Modifier
                      .fillParentMaxWidth(0.9f)
-                     .padding(top = 15.dp)
+                     .padding(bottom = 15.dp)
              )
          }
      }

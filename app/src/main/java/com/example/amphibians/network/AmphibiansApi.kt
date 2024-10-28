@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 
-const val BASE_URL = "https://android-kotlin-fun-mars-server.appspot.com/"
+const val BASE_URL = "https://android-kotlin-fun-mars-server.appspot.com"
 
 var retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
@@ -14,13 +14,15 @@ var retrofit = Retrofit.Builder()
     .build()
 
 
-interface AmphibiansApi{
-    @GET("amphibians")
+interface AmphibiansApiService{
+    @GET("/amphibians")
     fun getAllData() : List<Amphibian>
 }
 
 
-fun AmphibiansApiService(){
-    retrofit.create(AmphibiansApi::class.java)
+object AmphibiansApi{
+    val retrofitService : AmphibiansApiService by lazy {
+        retrofit.create(AmphibiansApiService::class.java)
+    }
 }
 

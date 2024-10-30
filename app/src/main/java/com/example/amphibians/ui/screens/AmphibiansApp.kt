@@ -6,6 +6,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.amphibians.network.Repository
 import com.example.amphibians.ui.theme.AmphibiansTheme
 
 
@@ -17,11 +18,19 @@ fun AmphibiansApp() {
                 .fillMaxSize(),
             topBar = { AmphibiansTopBar() }
         ) { innerPadding ->
-            AmphibiansList(
+            SuccessScreen(
                 modifier = Modifier.padding(innerPadding)
             )
         }
     }
+}
+
+@Composable
+fun SuccessScreen(modifier: Modifier){
+    AmphibiansList(
+        downloadedData = Repository.getData(),
+        modifier = modifier
+    )
 }
 
 

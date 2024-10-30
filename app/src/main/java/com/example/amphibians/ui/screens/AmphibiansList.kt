@@ -11,10 +11,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.amphibians.network.Repository.localData
 import com.example.amphibians.ui.theme.AmphibiansTheme
+import androidx.compose.foundation.lazy.items
+import com.example.amphibians.ui.model.Amphibian
+
+//modifier = Modifier
+//.fillParentMaxWidth(0.9f)
+//.padding(bottom = 15.dp)
 
 @Composable
  fun AmphibiansList(
+    downloadedData: List<Amphibian>,
      modifier : Modifier = Modifier
  ){
      LazyColumn(
@@ -22,8 +30,10 @@ import com.example.amphibians.ui.theme.AmphibiansTheme
              .fillMaxSize(),
          horizontalAlignment = Alignment.CenterHorizontally,
      ) {
-         items(4) {
+         items(localData) { cardInfo ->
              AmphibianCard(
+                 name = cardInfo.name,
+                 description = cardInfo.description,
                  modifier = Modifier
                      .fillParentMaxWidth(0.9f)
                      .padding(bottom = 15.dp)
@@ -33,10 +43,10 @@ import com.example.amphibians.ui.theme.AmphibiansTheme
  }
 
 
-@Preview
-@Composable
-fun AmphibiansListPreview(){
-    AmphibiansTheme {
-        AmphibiansList()
-    }
-}
+//@Preview
+//@Composable
+//fun AmphibiansListPreview(){
+//    AmphibiansTheme {
+//        AmphibiansList()
+//    }
+//}

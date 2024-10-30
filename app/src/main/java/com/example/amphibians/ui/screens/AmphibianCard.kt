@@ -19,6 +19,8 @@ import com.example.amphibians.ui.theme.AmphibiansTheme
 
 @Composable
 fun AmphibianCard(
+    name: String,
+    description: String,
     modifier: Modifier = Modifier
 ){
     Card(
@@ -31,7 +33,7 @@ fun AmphibianCard(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Заголовок карточки"
+                text = name
             )
             Box {
                 Image(
@@ -43,7 +45,7 @@ fun AmphibianCard(
                 )
             }
             Text(
-                text = "Ультранасилие - это понятие, которое вызывает контроверзы и споры. Термин ультранасилие относится к экстремальным формам насилия, превышающим обычные пределы и допустимые нормы. Такие формы насилия характеризуются чрезмерной жестокостью и жестокостью в поступках."
+                text = description
                     )
 
         }
@@ -51,10 +53,10 @@ fun AmphibianCard(
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun AmphibianCardPreview(){
-    AmphibiansTheme {
-        AmphibianCard()
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun AmphibianCardPreview(){
+//    AmphibiansTheme {
+//        AmphibianCard()
+//    }
+//}

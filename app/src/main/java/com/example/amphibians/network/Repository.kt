@@ -1,5 +1,12 @@
 package com.example.amphibians.network
 
-class Repository {
-    val localData = AmphibiansApi.retrofitService.getAllData()
+import com.example.amphibians.ui.model.Amphibian
+
+object Repository {
+//    var localData = AmphibiansApi.retrofitService.getAllData()
+    private val AmphibianService = AmphibiansApi.retrofitService
+
+    fun getData() : List<Amphibian>{
+        return AmphibianService.getAllData()
+    }
 }

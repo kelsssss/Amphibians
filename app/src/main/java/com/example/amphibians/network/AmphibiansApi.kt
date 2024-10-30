@@ -17,7 +17,7 @@ var retrofit = Retrofit.Builder()
 
 interface AmphibiansApiService{
     @GET("/amphibians")
-    fun getAllData() : List<Amphibian>
+    suspend fun getAllData() : List<Amphibian>
 }
 
 

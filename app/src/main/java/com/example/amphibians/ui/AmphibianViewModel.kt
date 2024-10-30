@@ -15,6 +15,10 @@ import kotlinx.coroutines.processNextEventInCurrentThread
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.initializer
+import androidx.lifecycle.viewmodel.viewModelFactory
+import coil3.network.HttpException
 import okio.IOException
 
 
@@ -27,21 +31,28 @@ sealed interface AmphibianUiState{
 
 class AmphibianViewModel() : ViewModel() {
 
+
+
     private val repository = Repository
 
     var amphibiansUiState : AmphibianUiState by mutableStateOf(AmphibianUiState.Loading)
+        private set
+
+    init{
+        getAmphibiansData()
+    }
 
 
-fun getAmphibiansData(){
-    viewModelScope.launch{
-        try {
-            val amphibians = repository.getData()
-            amphibiansUiState = AmphibianUiState.Success(amphibians)
-        } catch (e: IOException) {
-            amphibiansUiState = AmphibianUiState.Error
+    fun getAmphibiansData(){
+        viewModelScope.launch{
+            amphibiansUiState = try {
+                AmphibianUiState.Success(repository.getData())
+            } catch (e: IOException) {
+                AmphibianUiState.Error
+            } catch (e: HttpException){
+                AmphibianUiState.Error
+            }
         }
     }
-}
-
 
 }

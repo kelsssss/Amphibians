@@ -6,7 +6,7 @@ object Repository {
 //    var localData = AmphibiansApi.retrofitService.getAllData()
     private val AmphibianService = AmphibiansApi.retrofitService
 
-    fun getData() : List<Amphibian>{
+    suspend fun getData() : List<Amphibian>{
         return AmphibianService.getAllData()
     }
 }

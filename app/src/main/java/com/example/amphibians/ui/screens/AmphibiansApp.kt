@@ -11,7 +11,8 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.amphibians.network.Repository
 import com.example.amphibians.ui.AmphibianUiState
 import com.example.amphibians.ui.AmphibianViewModel
-import com.example.amphibians.ui.theme.AmphibiansTheme
+
+import com.example.compose.AmphibiansTheme
 
 
 @Composable

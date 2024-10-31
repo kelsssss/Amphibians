@@ -15,7 +15,7 @@ import com.example.amphibians.ui.AmphibianViewModel
 import com.example.amphibians.ui.screens.AmphibiansApp
 import com.example.amphibians.ui.screens.AmphibiansList
 import com.example.amphibians.ui.screens.AmphibiansTopBar
-import com.example.amphibians.ui.theme.AmphibiansTheme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

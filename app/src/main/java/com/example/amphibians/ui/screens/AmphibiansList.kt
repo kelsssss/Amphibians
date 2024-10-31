@@ -11,7 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.amphibians.ui.theme.AmphibiansTheme
+
 import androidx.compose.foundation.lazy.items
 import androidx.lifecycle.ViewModel
 import com.example.amphibians.ui.AmphibianViewModel

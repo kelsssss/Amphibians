@@ -1,6 +1,5 @@
 package com.example.amphibians.ui.screens
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,6 +13,7 @@ import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import coil3.compose.AsyncImage
 import com.example.amphibians.R
 import com.example.amphibians.ui.theme.AmphibiansTheme
 
@@ -21,6 +21,8 @@ import com.example.amphibians.ui.theme.AmphibiansTheme
 fun AmphibianCard(
     name: String,
     description: String,
+    type: String,
+    imgSrc: String,
     modifier: Modifier = Modifier
 ){
     Card(
@@ -33,15 +35,13 @@ fun AmphibianCard(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = name
+                text = "${name}(${type})"
             )
             Box {
-                Image(
-                    painter = painterResource(R.drawable.imagetest),
-                    contentDescription = "Картинка",
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    contentScale = ContentScale.Crop
+//
+                AsyncImage(
+                    model = imgSrc,
+                    contentDescription = null
                 )
             }
             Text(

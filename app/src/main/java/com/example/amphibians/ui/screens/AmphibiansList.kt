@@ -35,6 +35,8 @@ import com.example.amphibians.ui.model.Amphibian
              AmphibianCard(
                  name = cardInfo.name,
                  description = cardInfo.description,
+                 type = cardInfo.type,
+                 imgSrc = cardInfo.imgSrc,
                  modifier = Modifier
                      .fillParentMaxWidth(0.9f)
                      .padding(bottom = 15.dp)
